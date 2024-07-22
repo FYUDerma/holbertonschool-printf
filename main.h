@@ -8,4 +8,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+/* Prototype */
+int _printf(const char *format, ...);
+
 #endif
