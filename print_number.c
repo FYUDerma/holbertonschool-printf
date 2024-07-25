@@ -1,66 +1,59 @@
 #include "main.h"
 
 /**
- * print_number - prints a number in the parameter
- * @args: list of arguments
- * Return: The arguments is returned
+ * print_int - Prints an integer
+ * @list: list of arguments
+ * Return: return the amount of characters
  */
-
-int print_number(va_list args)
+int print_int(va_list list)
 {
-	int n, div, len;
-	unsigned int num;
+	int num = va_arg(list, int);
+	int len = 0;
 
-	n = va_arg(args, int);
-	div = 1;
-	len = 0;
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 
-	if (n < 0)
+	if (num < 0)
 	{
 		_putchar('-');
 		len++;
-		num = -n;
-	}
-	else
-	{
-		num = n;
+		num = -num;
 	}
 
-	while (num / div > 9)
-		div *= 10;
-
-	while (div != 0)
-		_putchar('0' + (num / div));
-		len++;
-		num %= div;
-		div /= 10;
-
+	len += print_number(num);
 	return (len);
 }
 
 /**
- * print_unsigned_number - prints a unsigned number in the parameter
- * @n: unsigned to print
- * Return: The arguments is returned
+ * print_number - Prints a number
+ * @num: The number to print
+ * Return: The number of characters printed
  */
-
-int print_unsigned_number(unsigned int n)
+int print_number(int num)
 {
 	int len = 0;
-	unsigned int div = 1;
+	int div = 1;
 
-	if (n == 0)
-		_putchar('0');
-		return (1);
+	if (num < 0)
+	{
+		_putchar('-');
+		len++;
+		num = -num;
+	}
 
-	while (n / div > 9)
+	while (num / div >= 10)
 		div *= 10;
 
 	while (div != 0)
-		_putchar('0' + (n / div));
+	{
+		_putchar('0' + num / div);
 		len++;
-		n %= div;
+		num %= div;
 		div /= 10;
+	}
 
 	return (len);
 }

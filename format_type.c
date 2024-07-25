@@ -1,41 +1,48 @@
 #include "main.h"
 
 /**
- * print_char - prints character
- * @list: list of arguments
- * Return: return the amount of characters
+ * print_char - Prints a character.
+ * @args: The list of arguments.
+ * Return: The number of characters printed.
  */
-int print_char(va_list list)
+int print_char(va_list args)
 {
-	_putchar(va_arg(list, int));
+	char c = va_arg(args, int);
+
+	_putchar(c);
 	return (1);
 }
 
 /**
- * print_string - prints a string
- * @list: list of arguments
- * Return: return the amount of characters
+ * print_str - Prints a string.
+ * @args: The list of arguments.
+ * Return: The number of characters printed.
  */
-int print_string(va_list list)
+int print_str(va_list args)
 {
-	int i;
-	char *str;
+	char *str = va_arg(args, char *);
+	int count = 0;
 
-	str = va_arg(list, char *);
 	if (str == NULL)
-		str = "(nil)";
-	for (i = 0; str[i] != '\0'; i++)
-		_putchar(str[i]);
-	return (i);
+		str = "(null)";
+
+	while (*str)
+	{
+		_putchar(*str);
+		count++;
+		str++;
+	}
+	return (count);
 }
 
 /**
- * print_percent - Prints a percent symbol
- * @list: list of arguments
- * Return: return the amount of characters
+ * print_percent - Prints a percent sign.
+ * @args: The list of arguments (not used).
+ * Return: The number of characters printed.
  */
-int print_percent(va_list list)
+int print_percent(va_list args)
 {
+	(void)args; /* Suppress unused parameter warning */
 	_putchar('%');
 	return (1);
 }
@@ -47,28 +54,7 @@ int print_percent(va_list list)
  */
 int print_integer(va_list list)
 {
-	int len;
+	int num = va_arg(list, int);
 
-	len = print_number(list);
-	return (len);
-}
-
-/**
- * unsigned_integer - Prints Unsigned integers
- * @list: list of arguments
- * Return: return the amount of characters
- */
-int unsigned_integer(va_list list)
-{
-	unsigned int num;
-
-	num = va_arg(list, unsigned int);
-
-	if (num == 0)
-		return (print_unsigned_number(num));
-
-	if (num < 1)
-		return (-1);
-
-	return (print_unsigned_number(num));
+	return (print_number(num));
 }
