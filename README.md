@@ -88,6 +88,9 @@ _printf("Bonjour")
 _printf("156")
 /* Expected output: 156*/
 ```
+### Flowchart
+
+![This is the flowchart of our project.](https://github.com/FYUDerma/holbertonschool-printf/blob/main/flowchart.jpg)
 
 ### Authors
 Binbin HE, github:@[binbinher](https://github.com/binbinher)
