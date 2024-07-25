@@ -1,0 +1,37 @@
+.\" Manpage for _printf.
+.\" Contact 9398@holbertonstudents.com to correct errors or typos.
+.TH man 3 "25/07/2024" "1.0" "_printf man page"
+.SH NAME
+_printf \- print to the stdout a string depending in the format used.
+.SH SYNOPSIS
+To use this function the #include "main.h" header is needed.
+.SH DESCRIPTION
+_printf is a function that prints output to the standard output stream stdout.
+It takes a format string as its first argument, followed by any number of additional arguments.
+The format string contains ordinary characters and special format specifiers, which are replaced by the additional arguments.
+.SH OPTIONS
+The following format specifiers are supported:
+.TP
+.C
+Character: c
+Print a single character.
+.TP
+.S
+String: s
+Print a string of characters.
+.TP
+.%
+Percent: %
+Print a percent sign.
+.TP
+.D
+Decimal: d, i
+Print an integer in decimal notation.
+.SH SEE ALSO
+Printf function repository (https://github.com/FYUDerma/holbertonschool-printf)
+.SH BUGS
+No knows bug yet
+.SH AUTHOR
+Zakaria AATTACHE (9398@holbertonstudents.com)
+.br
+Binbin He (binbin.he515@outlook.com)
