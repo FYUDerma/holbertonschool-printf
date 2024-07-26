@@ -16,6 +16,19 @@ int print_int(va_list list)
 		return (1);
 	}
 
+	if (num == -2147483648)
+	{
+		char *str = "-2147483648";
+
+		while (*str)
+		{
+			_putchar(*str);
+			len++;
+			str++;
+		}
+		return (len);
+	}
+
 	if (num < 0)
 	{
 		_putchar('-');
