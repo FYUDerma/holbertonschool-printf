@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * print_number - Prints a number
@@ -9,15 +10,23 @@ int print_number(int num)
 {
 	int len = 0;
 	int div = 1;
+	int temp_num = num;
 
 	if (num < 0)
 	{
 		_putchar('-');
 		len++;
+		if (num == INT_MIN)
+		{
+			num = -(num / 10);
+			len += print_number(num);
+			_putchar('8');
+			return (len + 1);
+		}
 		num = -num;
 	}
 
-	while (num / div >= 10)
+	while (temp_num / div >= 10 || temp_num / div <= -10)
 		div *= 10;
 
 	while (div != 0)
